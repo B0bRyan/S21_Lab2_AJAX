@@ -5,13 +5,29 @@
 @section Scripts{
     <script>
         // TODO: Écrire votre script
+        $.get('/Home/GetPartielle', null,
+            function(htmlContent){
+                let partielle = document.getElementById("Partielle1");
+                console.log(htmlContent);
+                partielle.innerHTML = htmlContent;
+
+                //Remplacez x par le code qui permet d’aller chercher la valeur du input
+                let data = {qty: nombre.value, texte: texte.value};
+                console.log(data);
+            }
+        );
     </script>
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <!--Utiliser ce div pour afficher la 1ere vue partielle-->
-    <div></div>
+    <div id="Partielle1">
+        <input type="text" name="texte" placeholder="Exemple"/>
+        <input type="number" name="nombre"/>
+        <a class="btn btn-primary">AJAX avec data</a>
+    </div>
     <!--Utiliser ce div pour afficher la 2e vue partielle-->
-    <div></div>
+    <div id=""></div>
 </div>
+
